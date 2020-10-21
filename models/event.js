@@ -8,8 +8,8 @@ const { Schema, model } = require('mongoose'),
   MODEL_NAME = 'Event';
 
 eventSchema.statics = {
-  findByUserId: async function (idUser) {
-    return await this.find({ idUser });
+  findByUserId: function (idUser) {
+    return this.find({ idUser });
   },
 };
 

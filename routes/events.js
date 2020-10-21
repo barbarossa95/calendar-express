@@ -10,6 +10,7 @@ router
     const {
       payload: { user },
     } = req;
+
     EventModel.findByUserId(user._id)
       .exec()
       .then((events) => res.json(events))

@@ -1,0 +1,19 @@
+{
+  "name": "calendar-express",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node -r dotenv/config  ./bin/www | pino-colada"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "cookie-parser": "^1.4.5",
+    "debug": "^2.6.9",
+    "dotenv": "^8.2.0",
+    "express": "^4.16.4",
+    "express-pino-logger": "^5.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.9",
+    "pino-colada": "^2.1.0"
+  }
+}

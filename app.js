@@ -3,11 +3,13 @@ const express = require('express'),
   authRouter = require('./routes/auth'),
   eventsRouter = require('./routes/events'),
   pino = require('express-pino-logger'),
+  cors = require('cors'),
   app = express();
 
 app.use(json());
 app.use(urlencoded({ extended: false }));
 app.use(pino());
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.sendStatus(201);

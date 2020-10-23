@@ -34,7 +34,7 @@ router
     UserModel.checkCredentials(username, password)
       .then(UserModel.createToken)
       .then(({ token, user }) => {
-        return res.json({
+        res.json({
           token,
           user: user.safe(),
         });

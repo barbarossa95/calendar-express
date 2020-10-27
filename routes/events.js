@@ -61,6 +61,21 @@ router
         }
       );
     });
+  })
+  .delete('/:id', (req, res) => {
+    const {
+      params: { id },
+    } = req;
+
+    EventModel.findById(id).then((event) => {
+      event.deleteOne((err) => {
+        if (err) {
+          return res.status(500).json({ err });
+        }
+
+        return res.sendStatus(204);
+      });
+    });
   });
 
 module.exports = router;

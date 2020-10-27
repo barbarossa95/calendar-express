@@ -32,12 +32,35 @@ router
       idUser: user._id,
     })
       .then((event) => {
-        res.json(event);
+        res.status(201).json(event);
       })
       .catch((e) => {
         console.error(e);
         res.sendStatus(500);
       });
+  })
+  .patch('/:id', (req, res) => {
+    const {
+      params: { id },
+      body: { title, start, duration },
+    } = req;
+
+    EventModel.findById(id).then((event) => {
+      event.update(
+        {
+          title,
+          start,
+          duration,
+        },
+        (err) => {
+          if (err) {
+            return res.status(500).json({ err });
+          }
+
+          return res.sendStatus(204);
+        }
+      );
+    });
   });
 
 module.exports = router;
